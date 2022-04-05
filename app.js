@@ -1,15 +1,51 @@
-const express = require('express')
-const sequelize = require('sequelize')
-const bcrypt = require ('bcryptjs')
-const ejs = require('ejs')
+const express = require('express');
+const bodyParser = require('body-parser')
+const sequelize = require('./database');
+const {User,Flavor} = require('./models/index');
 
-const sequelize = new Sequelize({
+
+const app = express();
+
+app.set('view engine', 'ejs');
+
+const urlencodedParser = bodyParser.urlencoded({extended:false})
+
+app.get('/', (req,res)=> {
+    res.render('index')
+})
+
+app.get ('/register',(req,res)=> {
+
+    res.render('register')
+
+
+})
+
+app.post ('/register',urlencodedParser,(req,res)=> {
+
+    res.json(req.body)
+})
+
+app.listen(8000,()=>{
+    console.log("Server app and running")
+});
+/* app.use(express.json());
+
+app.post('/users',(req,res)=>{
+    User.create(req.body).then(()=>{
+        res.send('user is inserted');
+    })
+})
+
+
+sequelize.sync().then(() => console.log('db is ready'));
+
+ */
+/* const sequelize = new Sequelize({
     dialect:'sqlite',
     storage:'./users.sqlite'
 });
 
-const app = express()
-app.set('view engine', 'ejs')
 app.use( express.urlencoded ({ extended: true}))
 
 
@@ -33,40 +69,24 @@ app.post ('/home',async(req,res)=> {
 
     res.redirect('/home')
 
-})
+}) */
 
-app.listen(8000,()=>{
-    console.log("Server app and running")
-})
+ 
 
 
-/* function generateHash(password){
-    const hash = bcrypt.hashSync(password)
-    return hash
-}
 
-console.log(generateHash("Hej"))  */
 
-/* async function testConnection(){
-    try{
-        await sequelize.authenticate()
-        console.log("Connection has been established sussefully")
-    }catch (error){
-        console.error("Unable to connect to the database:", error)
-
-    }
-    }
-
-    testConnection()
-
-    app.get('/registration', (req,res)=> {
-        res.render("registration",{name:"Alice"})
-    })
-
-    app.get ('/',(req,res)=> {
-        res.render("login")
-
-    }) */
 
   
+
+
+
+
+
+
+
+
+
+
+
 

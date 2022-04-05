@@ -2,13 +2,20 @@ const express = require('express');
 const bodyParser = require('body-parser')
 const sequelize = require('./database');
 const {User,Flavor} = require('./models/index');
-
-
 const app = express();
 
 app.set('view engine', 'ejs');
 
 const urlencodedParser = bodyParser.urlencoded({extended:false})
+app.use(express.static("public"));
+app.use(
+    session({
+        secret: process.env.SESSION_SECRET,
+        resave:false,
+        saveUninitialized: false,
+
+    })
+);
 
 app.get('/', (req,res)=> {
     res.render('index')

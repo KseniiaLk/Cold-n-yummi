@@ -1,40 +1,30 @@
 
-const Data = require('../database');
-const User = require("./user");
-const Flavor = require("./flavor");
+const { Sequelize } = require("sequelize");
+ const Users = require('./Users')
+ const Flavors = require('./Flavors')
 
-Flavor.hasMany(User)
-User.belongsTo(Flavor)
+ const sequelize = new Sequelize({
+  dialect: "sqlite",
+  storage: "database/db.sqlite"
+});
+ 
+const Flavor = Flavors(sequelize);
+const User = Users(sequelize);
 
-async function seed(){
-    await Flavor,bulkCreate([
-        {flavorName:"blueberry"},
-        {flavorName:"strawberry"},
-        {flavorName:"chocolate"},
-        {flavorName:"almond"},
-        {flavorName:"vanilla"},
-        {flavorName:"mango"},
-        {flavorName:"pineapple"},
-        {flavorName:"banana"},
-        {flavorName:"caramel"},
-        {flavorName:"mint"},
-        {flavorName:"raspberry"},
-        {flavorName:"cherry"},
-    ])
-}
 
-async function start(){
-    await setup()
-    await seed()
-}
+Flavor.hasMany(User, { foreginKey: "flavor_id" });
+User.belongsTo(Flavor, { foreginKey: "flavor_id" });
 
-start()
-    
- module.exports = {User,Flavor} 
+module.exports = {
+    User,
+    Flavor
+};
 
-/*  sequelize.sync().then( info =>{
-    console.log(info);
-})
-.catch((err)=>{
-console.log(err);
-}); */
+
+ 
+ 
+
+
+
+
+

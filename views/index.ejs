@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header>
+        <img src="/public/images/header-coldyummi.svg" alt="coldnyummy">
+        
+    </header>
+
+    <div class="wrapper">
+        <h3>Hello!</h3>
+        <a href="voteForm.ejs">Go to the top flavors</a>
+        <div class="wrapper-form">
+            <% for(let element of flavors){ %>
+                <% let _id = element.flavor_id %>
+                <section> 
+                    <%= element.name %> 
+                    <form action="/vote" method="POST">
+                        <input type="text" name="username" placeholder="Your name">
+                        <input type="text" name="email" placeholder="Your email">
+                        <input type="hidden" name="flavor_id" value="<%= _id %>">
+                        <button>Vote!</button>
+                    </form>
+                </section>
+                
+            <%}%>
+    
+    </div>
+    
+    
+</body>
+</html>

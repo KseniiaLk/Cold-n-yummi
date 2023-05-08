@@ -1,15 +1,33 @@
-const { User, Flavor } = require('../models');
+const { Sequelize} = require("sequelize")
+const {Flavor} = require('../models/index.js')
 
-Flavor.bulkCreate
-    ([{flavor_name: 'Vanilla', numVotes: 0},
-     {flavor_name: 'Strawberry',numVotes: 0}, 
-     {flavor_name: 'Chocolate',numVotes: 0},
-      {falvor_name: 'Mango',numVotes: 0},
-       {flavor_name: 'Cherry',numVotes: 0},
-        {flavor_name: 'Liquorice',numVotes: 0},
-         {flavor_name: 'Almond',numVotes: 0},
-          {flavor_name: 'Coconut',numVotes: 0},
-           {flavor_name: 'Blueberry',numVotes: 0},
-            {flavor_name: 'Pistachio',numVotes: 0}]);
+const sequelize = new Sequelize({
+  dialect: 'sqlite',
+  storage: './database/icecream.sqlite'
+});
 
-   
+Flavor.sync()
+.then(() => {
+  console.log("Flavors created")
+  return Flavor.bulkCreate([
+      
+    { name: "Matcha Green Tea", totalVotes: 2, emails:[] },
+    { name: "Pear-mint", totalVotes: 0, emails:[] },
+    { name: "Black Raspberry Chip", totalVotes: 3, emails:[]  },
+    { name: "Salted Caramel", totalVotes: 1, emails:[]  },
+    { name: "Coffee", totalVotes: 4, emails:[]  },
+    { name: "Butter Pecan", totalVotes: 2, emails:[]  },
+    { name: "Chocolate Chip", totalVotes: 0, emails:[]  },
+    { name: "Vanilla", totalVotes: 1, emails:[]  },
+    { name: "Coca cola", totalVotes: 3, emails:[]  },
+    { name: "Watermellon", totalVotes: 0, emails:[]  },
+  ])
+  .then((data) => {
+    data.forEach((element) => {
+        console.log(element.toJSON())
+    })
+})
+.catch((err) => {
+    console.error(err)
+})
+})

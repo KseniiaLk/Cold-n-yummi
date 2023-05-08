@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "commonjs",
   "scripts": {
-    "test": "nodemon index",
     "setup": "node database/setup.js",
-    "seed": "node database/seed.js"
-
+    "seed": "node database/seed.js",
+    "dev": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -21,15 +21,17 @@
   },
   "homepage": "https://github.com/KseniiaLk/Cold-n-yummi#readme",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.0",
-    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.1",
     "ejs": "^3.1.6",
+    "env": "^0.0.2",
     "express": "^4.17.3",
     "express-session": "^1.17.2",
-    "helmet": "^5.0.2",
-    "nodemon": "^2.0.15",
-    "sequelize": "^6.18.0",
-    "sqlite3": "^5.0.4"
+    "nodemon": "^2.0.22",
+    "promised-sqlite3": "^2.0.1",
+    "sequelize": "^6.31.1"
+  },
+  "devDependencies": {
+    "sqlite3": "^5.1.6"
   }
 }

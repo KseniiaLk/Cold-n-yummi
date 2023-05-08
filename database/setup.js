@@ -1,4 +1,7 @@
-const { User, Flavor} = require('../models');
+const { User, Flavor  }= require('../models')
 
-User.sync({force: true})
-Flavor.sync({force: true})
+async function setup(){
+    await Flavor.sync({force: true})
+    await User.sync({force: true})
+}
+  setup()

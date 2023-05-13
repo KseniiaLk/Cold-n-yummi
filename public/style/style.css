@@ -1,0 +1,79 @@
+
+.wrapper {
+  background-color: lightgoldenrodyellow;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-weight: bolder;
+}
+*{
+  font-family: Fredoka One, cursive;
+  font-weight: bolder;
+}
+
+header {
+  text-align: center;
+  background-color:  #FFB2B2;
+  width: 100vw;
+
+}
+
+nav{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 1.5em;
+  background-color: #FFB2B2;
+}
+
+form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  margin: 2rem;
+  background-color: peachpuff;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+  background-size: fill;
+}
+
+form button{
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: bolder;
+  color: rgb(44, 40, 40);
+  cursor: pointer;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+
+input {
+  border: none;
+  background-color: whitesmoke;
+  text-align: center;
+  font-size: 1.5rem;
+  border: #000000 3px solid; 
+}
+.top-list{
+  background-color: peachpuff;
+  border-radius: 5px;
+  width: 20vw;
+}
+
+
+
+
+
+
+
+
+@import url(https://fonts.google.com/specimen/Fredoka+One);

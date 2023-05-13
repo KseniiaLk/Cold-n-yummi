@@ -1,9 +1,9 @@
 
 const Flavor = require('./flavor')
-const User = require('./users')
+const User = require('./user')
 
 Flavor.hasMany(User, { foreignKey: "flavor_id" });
-User.belongsTo(Flavor)
+User.belongsTo(Flavor);
 
 module.exports= {Flavor, User}
 

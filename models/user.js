@@ -10,8 +10,8 @@ const { Sequelize, DataTypes, Model } = require("sequelize");
 User.init({
     id: {
       type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
+      allowNull:false,
+      primaryKey: true, 
     },
     username: {
       type: DataTypes.TEXT,
@@ -19,9 +19,13 @@ User.init({
     },
     email: {
         type: DataTypes.TEXT,
-      }
+        allowNull: false,
+        unique: true
+      },
     },
-    {sequelize});
+    {sequelize,
+      modelName: 'user'
+    });
 
     module.exports = User
 

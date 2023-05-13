@@ -1,4 +1,5 @@
 const {Sequelize, DataTypes, Model } = require("sequelize");
+
     class Flavor extends Model {}
 
     const sequelize = new Sequelize({
@@ -14,9 +15,16 @@ const {Sequelize, DataTypes, Model } = require("sequelize");
                 autoIncrement: true,
 
             },
-            name:DataTypes.TEXT,
-            totalVotes: DataTypes.INTEGER
+            name:{
+                type: DataTypes.TEXT,
+                allowNull: false
+            },
+            votes:{
+                 type: DataTypes.INTEGER,
+             }
                 },
-            {sequelize} )
+            {sequelize,
+                modelName: 'flavor'
+            })
         
             module.exports = Flavor

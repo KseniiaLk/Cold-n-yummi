@@ -24,14 +24,12 @@ express-session eller cookie-session(VG)
 bcryptjs(VG)
 #Krav - G
 =======
-
 ER-Diagram
 Ett statiskt antal förskapade smaker
 Användare kan rösta på någon av dessa, men bara en gång genom att skicka med sin e-mail (har man fler e-mail-adresser kan man rösta fler gånger)
 Användare kan se antal röster på de 10 mest populära smakerna
 #Krav - VG
 =======
-
 {...G-krav}
 Registrering och inloggning
 Ett statiskt antal förskapade smaker, men användare kan skapa en ny smak som andra kan rösta på

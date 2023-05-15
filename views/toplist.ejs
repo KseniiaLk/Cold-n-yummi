@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" src="../public/style/style.css" />
     <title>Coldnyummy</title>
+    <link rel="stylesheet" href="css/style.css" />
 
 </head>
 <body>
     <%- include('./partials/header') -%>
    <h1>The TOP 10 flavors</h1>
-    <div class="wrapper">
+    <div class="wrapper-top">
         <% for(let element of flavorList){ %>
             <article> 
                 <%= element.name %> 
-                <p>Has <%= element.votes %> Votes</p>
+                <p> <%= element.votes %> Votes</p>
             </article>
         <%}%>
     </div>

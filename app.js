@@ -5,9 +5,8 @@ const { Sequelize, Model, DataTypes } = require("sequelize")
 const {Flavor, User} = require('./models/index')
 
 app.set('view engine', 'ejs')
-app.use(express.static("public"));
-
 app.use(express.json())
+app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }))
 
 const sequelize = new Sequelize({

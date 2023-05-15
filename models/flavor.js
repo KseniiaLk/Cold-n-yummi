@@ -20,7 +20,7 @@ const {Sequelize, DataTypes, Model } = require("sequelize");
                 allowNull: false
             },
             votes:{
-                 type: DataTypes.INTEGER,
+                type: DataTypes.INTEGER,
              }
                 },
             {sequelize,

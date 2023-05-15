@@ -8,10 +8,3 @@ User.belongsTo(Flavor);
 module.exports= {Flavor, User}
 
 
- 
- 
-
-
-
-
-
